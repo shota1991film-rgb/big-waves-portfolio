@@ -4,21 +4,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BIG WAVES — Portfolio</title>
+<title>BIG WAVES — SHOTA KOBAYASHI</title>
 
 <style>
+
 *{
   box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 html,body{
   margin:0;
   padding:0;
   width:100%;
+  overflow-x:hidden;
   background:#f5f4ef;
   color:#111;
   font-family:Arial,"Helvetica Neue",sans-serif;
-  overflow-x:hidden;
 }
 
 a{
@@ -26,14 +31,16 @@ a{
   text-decoration:none;
 }
 
-/* NAV */
+/* =====================
+   NAV
+===================== */
 
 nav{
   position:absolute;
   top:0;
   left:0;
-  width:100%;
-  z-index:10;
+  right:0;
+  z-index:20;
 
   display:flex;
   justify-content:space-between;
@@ -47,30 +54,33 @@ nav{
 .brand{
   font-size:13px;
   font-weight:700;
-  letter-spacing:.15em;
+  letter-spacing:.16em;
 }
 
 .menu{
   display:flex;
-  gap:18px;
+  gap:20px;
+
   font-size:11px;
   letter-spacing:.14em;
-  text-transform:uppercase;
 }
 
-/* HERO */
+/* =====================
+   HERO
+===================== */
 
 .hero{
   position:relative;
+
   width:100%;
   height:100svh;
 
-  background:#000;
-
   overflow:hidden;
+
+  background:#000;
 }
 
-.hero video{
+.hero-video{
   position:absolute;
   inset:0;
 
@@ -84,14 +94,15 @@ nav{
 
 .hero::after{
   content:"";
+
   position:absolute;
   inset:0;
 
   background:
   linear-gradient(
     180deg,
-    rgba(0,0,0,.05) 45%,
-    rgba(0,0,0,.55) 100%
+    rgba(0,0,0,.05) 40%,
+    rgba(0,0,0,.6) 100%
   );
 
   pointer-events:none;
@@ -99,10 +110,11 @@ nav{
 
 .hero-copy{
   position:absolute;
-  left:5vw;
-  bottom:6vh;
 
-  z-index:2;
+  left:5vw;
+  bottom:7vh;
+
+  z-index:5;
 
   color:#fff;
 }
@@ -110,63 +122,94 @@ nav{
 .hero-copy p{
   margin:0 0 12px;
 
-  font-size:12px;
+  font-size:11px;
 
-  letter-spacing:.16em;
+  letter-spacing:.18em;
 }
 
 .hero-copy h1{
   margin:0;
 
-  font-size:clamp(48px,8vw,120px);
+  font-size:clamp(52px,9vw,130px);
 
-  line-height:.88;
+  line-height:.86;
 
-  letter-spacing:-.04em;
+  letter-spacing:-.05em;
 }
 
-/* CONTENT */
+/* =====================
+   ABOUT
+===================== */
 
 section{
-  padding:90px 5vw;
+  padding:100px 5vw;
 }
 
 .about{
   display:grid;
-  grid-template-columns:1fr 1.3fr;
+
+  grid-template-columns:1fr 1.2fr;
+
   gap:8vw;
+
+  align-items:center;
 }
 
-.photo{
+.profile-photo{
+  width:100%;
   aspect-ratio:4/5;
 
-  background:#ddd;
+  overflow:hidden;
 
-  display:grid;
-  place-items:center;
+  background:#111;
+}
 
-  color:#777;
+.profile-photo img{
+  width:100%;
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  object-position:center center;
 }
 
 .about h2{
   margin:0;
 
-  font-size:clamp(42px,7vw,90px);
+  font-size:clamp(46px,7vw,90px);
 
-  line-height:.95;
+  line-height:.92;
+
+  letter-spacing:-.04em;
 }
 
 .about p{
-  margin-top:30px;
+  margin:32px 0 0;
 
-  font-size:18px;
+  max-width:600px;
+
+  font-size:17px;
 
   line-height:1.9;
 
   color:#444;
 }
 
-/* WORK */
+/* =====================
+   WORK
+===================== */
+
+.work-title{
+  margin-bottom:35px;
+
+  font-size:11px;
+
+  letter-spacing:.18em;
+
+  color:#777;
+}
 
 .work-grid{
   display:grid;
@@ -177,31 +220,41 @@ section{
 }
 
 .work{
-  aspect-ratio:16/10;
+  position:relative;
 
-  background:#ddd;
+  aspect-ratio:16/10;
 
   display:flex;
 
   align-items:flex-end;
 
-  padding:20px;
+  padding:24px;
+
+  background:#ddd;
 }
 
 .work h3{
-  margin:0 0 6px;
+  margin:0 0 7px;
+
+  font-size:21px;
+
+  font-weight:500;
 }
 
 .work span{
   font-size:10px;
 
+  letter-spacing:.12em;
+
   color:#666;
 }
 
-/* CONTACT */
+/* =====================
+   CONTACT
+===================== */
 
 .contact{
-  min-height:55vh;
+  min-height:65vh;
 
   display:flex;
 
@@ -211,14 +264,22 @@ section{
 }
 
 .contact h2{
-  margin:0 0 30px;
+  margin:0 0 32px;
 
-  font-size:clamp(54px,10vw,140px);
+  font-size:clamp(58px,10vw,150px);
 
-  line-height:.85;
+  line-height:.84;
+
+  letter-spacing:-.05em;
 }
 
-/* FOOTER */
+.contact p{
+  color:#666;
+}
+
+/* =====================
+   FOOTER
+===================== */
 
 footer{
   padding:30px 5vw;
@@ -227,10 +288,14 @@ footer{
 
   font-size:11px;
 
+  letter-spacing:.1em;
+
   color:#777;
 }
 
-/* MOBILE */
+/* =====================
+   MOBILE
+===================== */
 
 @media(max-width:760px){
 
@@ -238,51 +303,80 @@ footer{
     padding:18px 5vw;
   }
 
+  .brand{
+    font-size:11px;
+  }
+
   .menu{
     gap:12px;
+
     font-size:9px;
   }
+
+  /* 9:16動画をスマホ全面表示 */
 
   .hero{
     height:100svh;
   }
 
-  /* 9:16動画をスマホいっぱいに */
-  .hero video{
+  .hero-video{
     object-fit:cover;
+    object-position:center center;
   }
 
   .hero-copy{
-    left:5vw;
-    bottom:7vh;
+    left:6vw;
+    bottom:8vh;
   }
 
   .hero-copy p{
-    font-size:9px;
     margin-bottom:8px;
+
+    font-size:9px;
   }
 
   .hero-copy h1{
-    font-size:42px;
+    font-size:44px;
   }
 
   section{
-    padding:70px 5vw;
+    padding:75px 5vw;
   }
 
   .about{
     grid-template-columns:1fr;
+
+    gap:38px;
+  }
+
+  .profile-photo{
+    aspect-ratio:4/5;
+  }
+
+  .about h2{
+    font-size:50px;
+  }
+
+  .about p{
+    font-size:16px;
   }
 
   .work-grid{
     grid-template-columns:1fr;
   }
+
+  .contact{
+    min-height:55vh;
+  }
+
 }
 
 </style>
 </head>
 
+
 <body>
+
 
 <nav>
 
@@ -291,16 +385,29 @@ footer{
   </a>
 
   <div class="menu">
-    <a href="#work">WORK</a>
-    <a href="#about">ABOUT</a>
-    <a href="#contact">CONTACT</a>
+
+    <a href="#work">
+      WORK
+    </a>
+
+    <a href="#about">
+      ABOUT
+    </a>
+
+    <a href="#contact">
+      CONTACT
+    </a>
+
   </div>
 
 </nav>
 
+
 <header class="hero">
 
   <video
+    id="heroVideo"
+    class="hero-video"
     autoplay
     muted
     loop
@@ -309,11 +416,12 @@ footer{
   >
 
     <source
-      src="copy_453A7A93-247F-4826-91B9-65051A7B7C30.mov"
+      src="hero.mp4.MOV"
       type="video/quicktime"
     >
 
   </video>
+
 
   <div class="hero-copy">
 
@@ -330,11 +438,21 @@ footer{
 
 </header>
 
-<section class="about" id="about">
 
-  <div class="photo">
-    PROFILE PHOTO
+<section
+  class="about"
+  id="about"
+>
+
+  <div class="profile-photo">
+
+    <img
+      src="profile.jpg"
+      alt="SHOTA KOBAYASHI"
+    >
+
   </div>
+
 
   <div>
 
@@ -344,66 +462,133 @@ footer{
     </h2>
 
     <p>
+
       BIG WAVES
+
       <br><br>
 
       企業・ブランドPR、YouTube制作、
       ウェディング、イベント、
       ドキュメンタリーなど。
+
       <br><br>
 
-      人や場所が持つ空気と物語を、
-      映像に残します。
+      日常にある光、空気、感情。
+
+      <br>
+
+      人や場所が持つ物語を、
+      映像として残します。
+
     </p>
 
   </div>
 
 </section>
 
+
 <section id="work">
+
+  <div class="work-title">
+    SELECTED WORK / CATEGORIES
+  </div>
+
 
   <div class="work-grid">
 
     <div class="work">
+
       <div>
-        <h3>Corporate & Brand PR</h3>
-        <span>Brand Film / Recruiting / YouTube</span>
+
+        <h3>
+          Corporate & Brand PR
+        </h3>
+
+        <span>
+          BRAND FILM / RECRUITING / YOUTUBE
+        </span>
+
       </div>
+
     </div>
 
-    <div class="work">
-      <div>
-        <h3>Wedding</h3>
-        <span>Wedding Film / Opening Movie</span>
-      </div>
-    </div>
 
     <div class="work">
+
       <div>
-        <h3>Event</h3>
-        <span>Festival / Ceremony / Live Event</span>
+
+        <h3>
+          Wedding
+        </h3>
+
+        <span>
+          WEDDING FILM / OPENING MOVIE
+        </span>
+
       </div>
+
     </div>
 
-    <div class="work">
-      <div>
-        <h3>Documentary</h3>
-        <span>People / Craft / Challenge</span>
-      </div>
-    </div>
 
     <div class="work">
+
       <div>
-        <h3>Personal Work</h3>
-        <span>Travel / Street / Memory</span>
+
+        <h3>
+          Event
+        </h3>
+
+        <span>
+          FESTIVAL / CEREMONY / LIVE EVENT
+        </span>
+
       </div>
+
+    </div>
+
+
+    <div class="work">
+
+      <div>
+
+        <h3>
+          Documentary
+        </h3>
+
+        <span>
+          PEOPLE / CRAFT / CHALLENGE
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <div class="work">
+
+      <div>
+
+        <h3>
+          Personal Work
+        </h3>
+
+        <span>
+          TRAVEL / STREET / MEMORY
+        </span>
+
+      </div>
+
     </div>
 
   </div>
 
 </section>
 
-<section class="contact" id="contact">
+
+<section
+  class="contact"
+  id="contact"
+>
 
   <h2>
     LET'S MAKE<br>
@@ -416,9 +601,40 @@ footer{
 
 </section>
 
+
 <footer>
-  © 2026 BIG WAVES / FILM PRODUCTION
+  © 2026 BIG WAVES / SHOTA KOBAYASHI
 </footer>
+
+
+<script>
+
+/* iPhoneで自動再生を安定させる */
+
+const heroVideo =
+document.getElementById("heroVideo");
+
+function playHero(){
+
+  heroVideo
+    .play()
+    .catch(() => {});
+
+}
+
+window.addEventListener(
+  "load",
+  playHero
+);
+
+document.addEventListener(
+  "touchstart",
+  playHero,
+  {once:true}
+);
+
+</script>
+
 
 </body>
 </html>
